@@ -12,8 +12,7 @@ data <- data.frame(datetime, data[-c(1,2)])
 
 rm(datetime)
 
+png("plot1.png")
 hist(data$Global_active_power, col = "red", main = "Global Active Power", 
      xlab = "Global Active Power (kilowatts)")
-
-dev.copy(png, file = "plot1.png")
 dev.off()

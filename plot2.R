@@ -12,9 +12,8 @@ data <- data.frame(datetime, data[-c(1,2)])
 
 rm(datetime)
 
-par(pin = c(5.21333, 5.21333))
+png("plot2.png")
+par(pty="s")
 plot(data$datetime, data$Global_active_power, type = "l", main = "", xlab = "", 
      ylab = "Global Active Power (kilowatts)")
-
-dev.copy(png, file = "plot2.png")
 dev.off()
