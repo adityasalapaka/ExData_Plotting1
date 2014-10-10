@@ -13,8 +13,14 @@ data <- data.frame(datetime, data[-c(1,2)])
 rm(datetime)
 
 par(pin = c(5.21333, 5.21333))
-plot(data$datetime, data$Global_active_power, type = "l", main = "", xlab = "", 
-     ylab = "Global Active Power (kilowatts)")
 
-dev.copy(png, file = "plot2.png")
+plot(data$datetime, data$Sub_metering_1, type = "n", xlab = "", ylab = "Energy Sub metering")
+lines(data$datetime, data[["Sub_metering_1"]], col = "black")
+
+lines(data$datetime, data[["Sub_metering_2"]], col = "red")
+lines(data$datetime, data[["Sub_metering_3"]], col = "blue")
+
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lty = 1)
+
+dev.copy(png, file = "plot3.png")
 dev.off()
